@@ -1,39 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class ProfileEditor extends React.Component {
   constructor() {
     super();
     this.state = {
-      name : "himanshu"
+      name: "Himanshu",
     };
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <input value={this.state.name}
-          onChange = {(e) => this.setState({name : e.target.value})} />
-        <button onClick = {(e) => this.setState({name : ""})}>Clear</button>
-        <button onClick = {(e) => this.setState({name : "himanshu"})}>Reset</button> 
-        <h1>hello {this.state.name}</h1>
-        <h2>{this.state.name.length}</h2>
+        {/* <input
+          value={this.state.name}
+          onChange={(e) => this.setState({ name: e.target.value })}
+        /> */}
+        <InputComponent
+          name={this.state.name}
+          onChangeEvent={(e) => this.setState({ name: e.target.value })}
+        />
+        {/* <button onClick={(e) => this.setState({ name: "" })}>Clear</button> */}
+        {/* <button onClick = {(e) => this.setState({name : "himanshu"})}>Reset</button>  */}
+        <NameButton
+          label="Reset"
+          onNameButtonClick={() => this.setState({ name: "reset" })}
+        />
+        <NameButton
+          label="Clear"
+          onNameButtonClick={() => this.setState({ name: "" })}
+        />
+        <Greeting name={this.state.name} />
       </div>
-    )
+    );
   }
 }
 
-// function Greeting() {
-//   return (
-//     <div>Hello {this.state.name}</div>
-//   )
-// }
+function InputComponent(props) {
+  return <input value={props.name} onChange={(e) => props.onChangeEvent(e)} />;
+}
+function Greeting(props) {
+  return <h1>Hello {props.name}</h1>;
+}
+
+function NameButton(props) {
+  return <button onClick={props.onNameButtonClick}>{props.label}</button>;
+}
 
 function App() {
-  return (
-   <ProfileEditor />
-  );
+  return <ProfileEditor />;
 }
 
 export default App;

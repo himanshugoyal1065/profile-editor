@@ -5,4 +5,24 @@
 3. Curly bracket means that whethever is inside should be treated/ parsed as an js.
 4. we cannot directly change the value of the name (in example), because it will
 change the value but will not update the whole view.
-5. 
+---version 1 committed
+
+
+5. function Greeting() {
+  return (
+    <div>Hello {this.state.name}</div>
+  )
+}
+
+Here, we don't have access to the state object as the object is present in the
+ProfileEditor class only.
+
+6. <Greeting name={this.state.name} />
+This is how we pass the name-value to another component. 
+
+7. All the properties are passed as parameters to the function components
+
+8. input component has the way of sending data from child to parent component
+9. Button components send event(or a chang without data basically) to the parent component
+(basically, it dependes on the callback that is sent to the method as the parameter)
+
