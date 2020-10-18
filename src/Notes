@@ -1,0 +1,8 @@
+1. Anything returned in the render() function is our view
+2. Model view controller : View are all the render functions
+    - Model is the state variable
+    - controller are the functions like onChange etc etc.
+3. Curly bracket means that whethever is inside should be treated/ parsed as an js.
+4. we cannot directly change the value of the name (in example), because it will
+change the value but will not update the whole view.
+5. 
